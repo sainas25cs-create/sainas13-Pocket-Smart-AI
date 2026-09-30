@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PocketSmartAI - Register</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        🟧 Pocket<span>SmartAI</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="/login" class="nav-button">
+            Sign In
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main class="auth-page">
+
+    <div class="auth-card">
+
+        <h1>
+            Create Account
+        </h1>
+
+        <p>
+            Join PocketSmartAI and start planning smarter.
+        </p>
+
+
+        {% if error %}
+        <div class="alert alert-error">
+            {{ error }}
+        </div>
+        {% endif %}
+
+
+        <form action="/register" method="post">
+
+            <div class="form-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+            </div>
+
+
+            <button type="submit" class="btn">
+                Create Account
+            </button>
+
+        </form>
+
+
+        <p style="margin-top:22px; margin-bottom:0;">
+
+            Already have an account?
+
+            <a
+                href="/login"
+                style="color:#1689d8; font-weight:700;"
+            >
+                Sign In
+            </a>
+
+        </p>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <h3>
+        🟧 PocketSmartAI
+    </h3>
+
+    <p>
+        Smart ideas for everyday life.
+    </p>
+
+    <p>
+        © 2026 PocketSmartAI. All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+</html>

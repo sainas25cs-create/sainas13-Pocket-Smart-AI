@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}PocketSmartAI{% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        🟧 Pocket<span>SmartAI</span>
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/interior">
+            Home Planner
+        </a>
+
+        <a href="/party">
+            Party Planner
+        </a>
+
+        <a href="/jewelry">
+            Jewelry Planner
+        </a>
+
+        <a href="/history">
+            History
+        </a>
+
+        {% if user %}
+
+        <a href="/logout" class="nav-button">
+            Logout
+        </a>
+
+        {% else %}
+
+        <a href="/login" class="nav-button">
+            Sign In
+        </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>
+
+
+{% block content %}
+
+{% endblock %}
+
+
+<footer>
+
+    <h3>
+        🟧 PocketSmartAI
+    </h3>
+
+    <p>
+        Smart ideas for everyday life.
+    </p>
+
+    <p>
+        © 2026 PocketSmartAI. All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

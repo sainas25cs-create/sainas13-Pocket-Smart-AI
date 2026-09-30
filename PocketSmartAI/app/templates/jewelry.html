@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jewelry Budget Planner - PocketSmartAI</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        💎 Pocket<span>SmartAI</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/interior">Home Planner</a>
+        <a href="/party">Party Planner</a>
+        <a href="/jewelry">Jewelry Planner</a>
+        <a href="/history">History</a>
+        <a href="/logout" class="nav-button">Logout</a>
+    </div>
+</nav>
+
+
+<section class="page-header">
+    <h1>💎 Jewelry Budget Planner</h1>
+    <p>Find jewelry ideas that match your budget, occasion and style.</p>
+</section>
+
+
+<main class="form-wrapper">
+
+    <div class="form-card">
+
+        <form id="jewelryForm">
+
+            <div class="form-section">
+
+                <h2>Jewelry Details</h2>
+
+                <div class="form-group">
+                    <label for="budget">Budget (₹)</label>
+
+                    <input
+                        type="number"
+                        id="budget"
+                        min="1"
+                        placeholder="Example: 50000"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="occasion">Occasion</label>
+
+                    <select id="occasion" required>
+                        <option value="">Select Occasion</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Engagement">Engagement</option>
+                        <option value="Festival">Festival</option>
+                        <option value="Party">Party</option>
+                        <option value="Daily Wear">Daily Wear</option>
+                        <option value="Gift">Gift</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="jewelry_type">Jewelry Type</label>
+
+                    <select id="jewelry_type" required>
+                        <option value="">Select Jewelry Type</option>
+                        <option value="Necklace">Necklace</option>
+                        <option value="Earrings">Earrings</option>
+                        <option value="Bangles">Bangles</option>
+                        <option value="Ring">Ring</option>
+                        <option value="Chain">Chain</option>
+                        <option value="Bracelet">Bracelet</option>
+                        <option value="Set">Jewelry Set</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="metal">Metal / Material</label>
+
+                    <select id="metal" required>
+                        <option value="">Select Material</option>
+                        <option value="Gold">Gold</option>
+                        <option value="Silver">Silver</option>
+                        <option value="Diamond">Diamond</option>
+                        <option value="Platinum">Platinum</option>
+                        <option value="Artificial">Artificial</option>
+                        <option value="Any">Any</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="style">Style</label>
+
+                    <select id="style" required>
+                        <option value="">Select Style</option>
+                        <option value="Traditional">Traditional</option>
+                        <option value="Modern">Modern</option>
+                        <option value="Minimalist">Minimalist</option>
+                        <option value="Elegant">Elegant</option>
+                        <option value="Bridal">Bridal</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="description">
+                        Additional Requirements
+                    </label>
+
+                    <textarea
+                        id="description"
+                        placeholder="Example: I want a simple elegant necklace for a wedding."
+                    ></textarea>
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="outfit_image">
+                        Outfit Image (Optional)
+                    </label>
+
+                    <input
+                        type="file"
+                        id="outfit_image"
+                        accept="image/png,image/jpeg,image/webp"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="generate-btn"
+                id="generateBtn"
+            >
+                💎 Generate Jewelry Plan
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<section class="result-section">
+
+    <div class="result-card">
+
+        <h2>💎 Your AI Jewelry Recommendation</h2>
+
+        <div
+            id="result"
+            class="result-box"
+            style="display:none;"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<footer>
+    <h3>💎 PocketSmartAI</h3>
+    <p>Smart AI planning for your everyday needs.</p>
+</footer>
+
+
+<script>
+
+const form = document.getElementById("jewelryForm");
+const button = document.getElementById("generateBtn");
+const resultBox = document.getElementById("result");
+
+
+form.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    button.disabled = true;
+    button.textContent = "Generating Jewelry Plan...";
+
+    resultBox.style.display = "block";
+    resultBox.textContent =
+        "⏳ Creating your jewelry recommendation...";
+
+
+    const formData = new FormData();
+
+    formData.append(
+        "budget",
+        document.getElementById("budget").value
+    );
+
+    formData.append(
+        "occasion",
+        document.getElementById("occasion").value
+    );
+
+    formData.append(
+        "jewelry_type",
+        document.getElementById("jewelry_type").value
+    );
+
+    formData.append(
+        "metal",
+        document.getElementById("metal").value
+    );
+
+    formData.append(
+        "style",
+        document.getElementById("style").value
+    );
+
+    formData.append(
+        "description",
+        document.getElementById("description").value
+    );
+
+
+    const imageInput =
+        document.getElementById("outfit_image");
+
+    if (imageInput.files.length > 0) {
+
+        formData.append(
+            "outfit_image",
+            imageInput.files[0]
+        );
+
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "/api/planners/jewelry",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+
+
+        const responseData =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            let errorMessage =
+                responseData.detail || responseData;
+
+            if (typeof errorMessage !== "string") {
+
+                errorMessage =
+                    JSON.stringify(
+                        errorMessage,
+                        null,
+                        2
+                    );
+
+            }
+
+            throw new Error(errorMessage);
+        }
+
+
+        let result = responseData.result;
+
+        if (
+            result === undefined ||
+            result === null
+        ) {
+            result = responseData;
+        }
+
+
+        if (typeof result === "string") {
+
+            resultBox.textContent =
+                "💎 " + result;
+
+        } else {
+
+            resultBox.textContent =
+                "💎 " +
+                JSON.stringify(
+                    result,
+                    null,
+                    2
+                );
+
+        }
+
+
+    } catch (error) {
+
+        resultBox.textContent =
+            "⚠️ " + error.message;
+
+    }
+
+
+    button.disabled = false;
+    button.textContent =
+        "💎 Generate Jewelry Plan";
+
+});
+
+</script>
+
+</body>
+</html>

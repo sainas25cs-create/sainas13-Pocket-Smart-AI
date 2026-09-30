@@ -1,0 +1,562 @@
+/* =========================================================
+   PocketSmartAI - Common Design System
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f8fc;
+    color: #17365d;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar,
+nav {
+    background: #12345b;
+    min-height: 76px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #ff9d24;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.nav-links a,
+nav a {
+    color: white;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.nav-links a:hover,
+nav a:hover {
+    color: #ff9d24;
+}
+
+.nav-button {
+    border: 1px solid white;
+    padding: 9px 18px;
+    border-radius: 22px;
+}
+
+.nav-button:hover {
+    background: white;
+    color: #12345b !important;
+}
+
+/* =========================================================
+   PAGE CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(1150px, 92%);
+    margin: 0 auto;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    background: linear-gradient(
+        135deg,
+        #287fc7,
+        #123e72
+    );
+    color: white;
+    padding: 65px 6%;
+}
+
+.hero-content {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: 44px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #eaf4ff;
+}
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+    background: linear-gradient(
+        135deg,
+        #287fc7,
+        #123e72
+    );
+    color: white;
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.page-header h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 17px;
+    color: #e8f3ff;
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.card,
+.planner-card,
+.form-card,
+.result-card,
+.feature-box {
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(18, 52, 91, 0.10);
+}
+
+.card {
+    padding: 28px;
+}
+
+.cards,
+.card-grid,
+.planner-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn,
+.primary-btn,
+.generate-btn,
+button[type="submit"] {
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    background: linear-gradient(
+        90deg,
+        #1689d8,
+        #123e72
+    );
+    color: white;
+    padding: 13px 25px;
+    border-radius: 25px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.btn:hover,
+.primary-btn:hover,
+.generate-btn:hover,
+button[type="submit"]:hover {
+    background: #ff9518;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-wrapper {
+    width: min(900px, 92%);
+    margin: 45px auto;
+}
+
+.form-card {
+    padding: 35px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h2,
+.form-section h3 {
+    color: #123e72;
+    margin-bottom: 18px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label,
+label {
+    display: block;
+    color: #17365d;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid #cbd9e8;
+    border-radius: 10px;
+    padding: 13px 14px;
+    background: white;
+    color: #17365d;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #1689d8;
+    box-shadow: 0 0 0 3px rgba(22, 137, 216, 0.10);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* =========================================================
+   CHECKBOX / RADIO
+   ========================================================= */
+
+.checkbox-grid,
+.radio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.checkbox-item,
+.radio-item {
+    background: #f4f8fc;
+    border: 1px solid #d7e3ef;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.checkbox-item label,
+.radio-item label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.checkbox-item input,
+.radio-item input {
+    width: auto;
+}
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.result-section {
+    width: min(1100px, 92%);
+    margin: 40px auto;
+}
+
+.result-card {
+    padding: 30px;
+    margin-bottom: 22px;
+}
+
+.result-card h2,
+.result-card h3 {
+    color: #1260a8;
+    margin-bottom: 12px;
+}
+
+.result-card p {
+    color: #60748a;
+}
+
+.result-box {
+    background: #f4f8fc;
+    border-left: 5px solid #1689d8;
+    border-radius: 10px;
+    padding: 20px;
+    white-space: pre-wrap;
+}
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard {
+    padding: 50px 0;
+}
+
+.dashboard-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-title h1 {
+    color: #123e72;
+    font-size: 36px;
+}
+
+.dashboard-title p {
+    color: #60748a;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 18px;
+    padding: 28px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(18, 52, 91, 0.10);
+}
+
+.dashboard-icon {
+    font-size: 65px;
+    background: #e4f0fb;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.dashboard-card h2 {
+    color: #1260a8;
+    margin-bottom: 10px;
+}
+
+.dashboard-card p {
+    color: #60748a;
+    min-height: 75px;
+}
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th {
+    background: #123e72;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+
+td {
+    padding: 14px;
+    border-bottom: 1px solid #e0e7ef;
+    color: #4d6278;
+}
+
+/* =========================================================
+   HISTORY
+   ========================================================= */
+
+.history {
+    width: min(1000px, 92%);
+    margin: 45px auto;
+}
+
+.history-item {
+    background: white;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(18, 52, 91, 0.08);
+}
+
+/* =========================================================
+   LOGIN / REGISTER
+   ========================================================= */
+
+.auth-page {
+    min-height: calc(100vh - 76px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 45px 20px;
+    background: #f4f8fc;
+}
+
+.auth-card {
+    width: min(450px, 100%);
+    background: white;
+    padding: 38px;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(18, 52, 91, 0.12);
+}
+
+.auth-card h1 {
+    text-align: center;
+    color: #123e72;
+    margin-bottom: 8px;
+}
+
+.auth-card p {
+    text-align: center;
+    color: #60748a;
+    margin-bottom: 25px;
+}
+
+.auth-card .btn,
+.auth-card button {
+    width: 100%;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: #0d2948;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+}
+
+footer h3 {
+    margin-bottom: 8px;
+}
+
+footer p {
+    color: #b9cce0;
+    font-size: 14px;
+}
+
+/* =========================================================
+   ALERTS
+   ========================================================= */
+
+.alert {
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background: #e5f7ec;
+    color: #176b38;
+}
+
+.alert-error {
+    background: #fde8e8;
+    color: #9b1c1c;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .navbar,
+    nav {
+        flex-direction: column;
+        padding: 18px 20px;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .cards,
+    .card-grid,
+    .planner-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .checkbox-grid,
+    .radio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .page-header h1 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-card,
+    .auth-card {
+        padding: 22px;
+    }
+
+    .hero {
+        padding: 45px 20px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}

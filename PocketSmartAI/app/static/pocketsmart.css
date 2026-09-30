@@ -1,0 +1,587 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #182230;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px 7%;
+
+    background: #12345b;
+    color: #ffffff;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+    min-height: 70px;
+}
+
+nav a {
+    margin-left: 22px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+nav a:hover {
+    color: #d9e8ff;
+}
+
+.brand {
+    font-size: 21px;
+    font-weight: 800;
+
+    color: #ffffff !important;
+
+    text-decoration: none;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    padding: 0 24px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    text-align: center;
+
+    padding: 72px 20px 82px;
+
+    margin: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #173f70 0%,
+            #2863a2 50%,
+            #3779bb 100%
+        );
+
+    color: #ffffff;
+}
+
+.hero h1 {
+    margin: 0 0 18px;
+
+    font-size: 52px;
+
+    line-height: 1.08;
+
+    font-weight: 800;
+
+    color: #ffffff;
+}
+
+.hero-text {
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #eaf3ff;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button,
+.btn {
+    display: inline-block;
+
+    margin-top: 26px;
+
+    padding: 13px 24px;
+
+    border: 0;
+
+    border-radius: 24px;
+
+    background: #1d5f9e;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+    background: #164d83;
+
+    transform: translateY(-1px);
+}
+
+.hero .btn {
+    background: #15528d;
+
+    margin-right: 10px;
+}
+
+.hero .btn:hover {
+    background: #0f467b;
+}
+
+.hero .secondary-button {
+    background: #ffffff;
+
+    color: #214b75;
+
+    border: none;
+}
+
+.hero .secondary-button:hover {
+    background: #edf5ff;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section {
+    padding: 65px 0;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 38px;
+}
+
+.section-title h2 {
+    margin: 0 0 10px;
+
+    font-size: 32px;
+
+    color: #263b52;
+}
+
+.section-title p {
+    margin: 0 auto;
+
+    max-width: 650px;
+
+    color: #7b8794;
+
+    line-height: 1.6;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 24px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: #ffffff;
+
+    padding: 28px;
+
+    border-radius: 10px;
+
+    border: 1px solid #e3e8ee;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(18, 52, 91, 0.08);
+
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 14px 30px rgba(18, 52, 91, 0.13);
+}
+
+.card h1 {
+    margin-top: 0;
+}
+
+.card h2 {
+    color: #24486d;
+}
+
+.card h3 {
+    color: #24486d;
+}
+
+/* =========================
+   PLANNER CARDS
+========================= */
+
+.planner-card {
+    padding: 0;
+
+    overflow: hidden;
+
+    text-align: left;
+}
+
+.planner-card-header {
+    padding: 22px;
+
+    background: #164779;
+
+    color: #ffffff;
+
+    text-align: center;
+}
+
+.planner-card-header h3 {
+    margin: 10px 0 0;
+
+    color: #ffffff;
+}
+
+.planner-card-body {
+    padding: 24px;
+}
+
+.feature-icon {
+    font-size: 38px;
+
+    line-height: 1;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.muted {
+    color: #667085;
+}
+
+.error {
+    color: #b42318;
+
+    min-height: 20px;
+}
+
+.success {
+    color: #087443;
+}
+
+/* =========================
+   FORMS
+========================= */
+
+label {
+    display: block;
+
+    margin: 14px 0 7px;
+
+    font-weight: 600;
+
+    color: #344054;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ccd2dd;
+
+    border-radius: 8px;
+
+    font: inherit;
+
+    background: #ffffff;
+
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #3274b5;
+
+    box-shadow:
+        0 0 0 3px rgba(50, 116, 181, 0.12);
+}
+
+textarea {
+    min-height: 100px;
+
+    resize: vertical;
+}
+
+/* =========================
+   SECONDARY BUTTON
+========================= */
+
+.secondary-button {
+    display: inline-block;
+
+    padding: 10px 16px;
+
+    border-radius: 20px;
+
+    background: #e9f2fb;
+
+    color: #205485;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.secondary-button:hover {
+    background: #dcecfb;
+}
+
+/* =========================
+   BADGE
+========================= */
+
+.badge {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: #e9f2fb;
+
+    color: #205485;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+}
+
+/* =========================
+   RECOMMENDATIONS
+========================= */
+
+.recommendation {
+    padding: 18px 0;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.recommendation h3 {
+    margin-top: 0;
+}
+
+.allocation-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(150px, 1fr));
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.allocation {
+    padding: 15px;
+
+    background: #f3f7fb;
+
+    border-radius: 10px;
+}
+
+.allocation span {
+    display: block;
+
+    color: #667085;
+
+    margin-bottom: 6px;
+}
+
+/* =========================
+   AUTH
+========================= */
+
+.auth-card {
+    max-width: 500px;
+
+    margin: 70px auto;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+
+    padding: 40px 20px;
+
+    color: #667085;
+
+    background: #f5f8fb;
+
+    border-top: 1px solid #e4e9ef;
+}
+
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden {
+    display: none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 850px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        padding: 15px 20px;
+    }
+
+    nav a {
+        margin-left: 10px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+}
+.hero-subtitle {
+    margin: 0 0 16px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.hero-actions {
+    margin-top: 10px;
+}
+
+.hero-actions .btn {
+    margin-right: 8px;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-button {
+    display: inline-block;
+
+    margin-left: 20px;
+
+    padding: 10px 20px;
+
+    border-radius: 22px;
+
+    background: #3278bd;
+
+    color: #ffffff !important;
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.nav-button:hover {
+    background: #2868a5;
+}
+@media (max-width: 600px) {
+
+    nav {
+        display: block;
+
+        text-align: center;
+    }
+
+    .brand {
+        display: block;
+
+        margin-bottom: 12px;
+    }
+
+    nav a {
+        display: inline-block;
+
+        margin: 4px 7px;
+    }
+
+    .hero {
+        padding: 55px 20px 65px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 45px 0;
+    }
+}

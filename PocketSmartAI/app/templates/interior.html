@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PocketSmartAI - Home Interior Planner</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        🟧 Pocket<span>SmartAI</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">Home</a>
+
+        <a href="/interior">
+            Home Planner
+        </a>
+
+        <a href="/party">
+            Party Planner
+        </a>
+
+        <a href="/jewelry">
+            Jewelry Planner
+        </a>
+
+        <a href="/history">
+            History
+        </a>
+
+        <a href="/logout" class="nav-button">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="page-header">
+
+    <h1>
+        Home Interior AI Planner
+    </h1>
+
+    <p>
+        Create a personalized interior plan
+        based on your room, style and budget.
+    </p>
+
+</section>
+
+
+<main class="form-wrapper">
+
+    <div class="form-card">
+
+        <form id="interiorForm">
+
+            <div class="form-section">
+
+                <h2>
+                    Budget Details
+                </h2>
+
+                <div class="form-group">
+
+                    <label for="budget">
+                        Budget
+                    </label>
+
+                    <select id="budget" required>
+
+                        <option value="">
+                            Select your budget
+                        </option>
+
+                        <option value="Budget Friendly">
+                            Budget Friendly
+                        </option>
+
+                        <option value="Moderate">
+                            Moderate
+                        </option>
+
+                        <option value="Premium">
+                            Premium
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-section">
+
+                <h2>
+                    Room Details
+                </h2>
+
+                <div class="form-group">
+
+                    <label for="room">
+                        Room
+                    </label>
+
+                    <select id="room" required>
+
+                        <option value="">
+                            Select room
+                        </option>
+
+                        <option value="Living Room">
+                            Living Room
+                        </option>
+
+                        <option value="Bedroom">
+                            Bedroom
+                        </option>
+
+                        <option value="Kitchen">
+                            Kitchen
+                        </option>
+
+                        <option value="Dining Room">
+                            Dining Room
+                        </option>
+
+                        <option value="Bathroom">
+                            Bathroom
+                        </option>
+
+                        <option value="Full Home">
+                            Full Home
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="size">
+                        Room Size
+                    </label>
+
+                    <select id="size" required>
+
+                        <option value="">
+                            Select room size
+                        </option>
+
+                        <option value="Small">
+                            Small
+                        </option>
+
+                        <option value="Medium">
+                            Medium
+                        </option>
+
+                        <option value="Large">
+                            Large
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-section">
+
+                <h2>
+                    Interior Style
+                </h2>
+
+                <div class="form-group">
+
+                    <label for="style">
+                        Preferred Style
+                    </label>
+
+                    <select id="style" required>
+
+                        <option value="">
+                            Select style
+                        </option>
+
+                        <option value="Modern">
+                            Modern
+                        </option>
+
+                        <option value="Minimalist">
+                            Minimalist
+                        </option>
+
+                        <option value="Traditional">
+                            Traditional
+                        </option>
+
+                        <option value="Luxury">
+                            Luxury
+                        </option>
+
+                        <option value="Scandinavian">
+                            Scandinavian
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-section">
+
+                <h2>
+                    Additional Information
+                </h2>
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Tell us about your requirements
+                    </label>
+
+                    <textarea
+                        id="description"
+                        placeholder="Example: I want a simple modern living room with more storage and warm lighting."
+                        required
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="generate-btn"
+                id="generateBtn"
+            >
+                ✨ Generate AI Recommendations
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<section
+    class="result-section"
+    id="resultSection"
+    style="display:none;"
+>
+
+    <div class="result-card">
+
+        <h2>
+            🤖 Your AI Interior Recommendation
+        </h2>
+
+        <div
+            id="result"
+            class="result-box"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>
+        🟧 PocketSmartAI
+    </h3>
+
+    <p>
+        Smart ideas for everyday life.
+    </p>
+
+    <p>
+        © 2026 PocketSmartAI. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+const form = document.getElementById("interiorForm");
+
+const button = document.getElementById("generateBtn");
+
+const resultSection =
+    document.getElementById("resultSection");
+
+const result =
+    document.getElementById("result");
+
+
+form.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "⏳ Generating Recommendations...";
+
+
+    resultSection.style.display = "block";
+
+    result.textContent =
+        "AI is creating your personalized interior plan...";
+
+
+    const data = {
+
+        room:
+            document.getElementById("room").value,
+
+        style:
+            document.getElementById("style").value,
+
+        budget:
+            document.getElementById("budget").value,
+
+        size:
+            document.getElementById("size").value,
+
+        description:
+            document.getElementById("description").value
+
+    };
+
+
+    try {
+
+        const response = await fetch(
+            "/api/interior",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body: JSON.stringify(data)
+            }
+        );
+
+
+        const responseData =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                responseData.detail ||
+                "Something went wrong."
+            );
+
+        }
+
+
+        result.textContent =
+            responseData.result ||
+            "No recommendation received.";
+
+
+        resultSection.scrollIntoView({
+            behavior: "smooth"
+        });
+
+
+    } catch (error) {
+
+        result.textContent =
+            "⚠️ " + error.message;
+
+    }
+
+
+    button.disabled = false;
+
+    button.textContent =
+        "✨ Generate AI Recommendations";
+
+});
+
+</script>
+
+
+</body>
+</html>

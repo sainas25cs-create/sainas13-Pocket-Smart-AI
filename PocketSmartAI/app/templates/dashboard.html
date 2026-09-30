@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PocketSmartAI - Dashboard</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        🟧 Pocket<span>SmartAI</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/dashboard">Home</a>
+
+        <a href="/interior">
+            Home Planner
+        </a>
+
+        <a href="/party">
+            Party Planner
+        </a>
+
+        <a href="/jewelry">
+            Jewelry Planner
+        </a>
+
+        <a href="/history">
+            History
+        </a>
+
+        <a href="/logout" class="nav-button">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<section class="page-header">
+
+    <h1>
+        Welcome, {{ user.name if user else "User" }}!
+    </h1>
+
+    <p>
+        Choose a budget planner to get personalized
+        recommendations for your needs.
+    </p>
+
+</section>
+
+
+<main class="dashboard">
+
+    <div class="container">
+
+        <div class="dashboard-title">
+
+            <h1>
+                Smart Budget Planners
+            </h1>
+
+            <p>
+                Select a planner and start creating
+                your personalized plan.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+            <!-- HOME PLANNER -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    🏠
+                </div>
+
+                <h2>
+                    Home Budget Planner
+                </h2>
+
+                <p>
+                    Plan your home interior with
+                    AI-powered recommendations for
+                    furniture, lighting, storage
+                    and decoration.
+                </p>
+
+                <a href="/interior" class="btn">
+                    Get Started
+                </a>
+
+            </div>
+
+
+            <!-- PARTY PLANNER -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    🎉
+                </div>
+
+                <h2>
+                    Party Budget Planner
+                </h2>
+
+                <p>
+                    Plan your party with smart
+                    recommendations for food,
+                    decoration, venue and
+                    entertainment.
+                </p>
+
+                <a href="/party" class="btn">
+                    Get Started
+                </a>
+
+            </div>
+
+
+            <!-- JEWELRY PLANNER -->
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-icon">
+                    💎
+                </div>
+
+                <h2>
+                    Jewelry Budget Planner
+                </h2>
+
+                <p>
+                    Find jewelry recommendations
+                    based on your occasion,
+                    outfit and budget.
+                </p>
+
+                <a href="/jewelry" class="btn">
+                    Get Started
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- RECENT ACTIVITY -->
+
+        <section class="history">
+
+            <div class="dashboard-title">
+
+                <h1>
+                    Recent Activity
+                </h1>
+
+                <p>
+                    Your recent PocketSmartAI
+                    planning activities.
+                </p>
+
+            </div>
+
+
+            <div class="history-item">
+                🏠 Home Interior Planner
+            </div>
+
+            <div class="history-item">
+                🎉 Party Budget Planner
+            </div>
+
+            <div class="history-item">
+                💎 Jewelry Budget Planner
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <h3>
+        🟧 PocketSmartAI
+    </h3>
+
+    <p>
+        Smart ideas for everyday life.
+    </p>
+
+    <p>
+        © 2026 PocketSmartAI. All rights reserved.
+    </p>
+
+</footer>
+
+
+</body>
+</html>
